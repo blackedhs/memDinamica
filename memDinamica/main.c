@@ -1,66 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
-int* reasignar(int* pBuffer,int size);
-int deleteArray(int* pBuffer);
-int inicializar(int* pBuffer,int limite,int parametro);
-int imprimir(int* pBuffer,int limite);
-int* newArray(int size);
-int main()
-{
-    int* pArray;
-    int*auxArray;
-    pArray = newArray(10);
-    inicializar(pArray,10,12);
-    imprimir(pArray,10);
-    auxArray=reasignar(pArray,20);
-    if(auxArray!=NULL){
-        pArray=auxArray;
+#include "empleado.h"
+#include "service.h"
+#include "user.h"
+
+
+int main(){
+    Empleado* listaEmpleados[1000];
+    Service* listaService[1000];
+    User* listaUser[1000];
+    int qtyEmpleados=0;
+    int qtyService=0;
+    int qtyUser=0;
+    int i;
+    char auxiliares[50];
+
+    for(i=0;i<100;i++){
+        sprintf(auxiliares,"juancito_%d",i);
+        listaEmpleados[i]=empleado_newParametro(auxiliares,"Andrade",1.56);
+        qtyEmpleados++;
     }
-    deleteArray(pArray);
+    for(i=0;i<qtyEmpleados;i++){
+        empleado_print(listaEmpleados[i]);
+    }
+    for(i=0;i<100;i++){
+        sprintf(auxiliares,"msj_%d",i);
+        listaService[i]=ser_newParametros(100+i,auxiliares,i);
+        qtyService++;
+    }
+     for(i=0;i<qtyService;i++){
+        ser_print(listaService[i]);
+    }
+
+    for(i=0;i<100;i++){
+        sprintf(auxiliares,"lala_%d",i);
+        listaUser[i]=user_newParametro("negr@latengo",auxiliares,i);
+        qtyUser++;
+    }
+     for(i=0;i<qtyUser;i++){
+        user_print(listaUser[i]);
+    }
 
     return 0;
-}
-int* newArray(int size){
-    int* retorno=NULL;
-    if(size>0 ){
-        retorno = malloc(sizeof(int)*size);
-    }
-    return retorno;
-}
-int inicializar(int* pBuffer,int limite,int parametro){
-    int i;
-    int retorno=-1;
-    if(pBuffer!=NULL && limite>0 ){
-        retorno=0;
-        for(i=0;i<limite;i++){
-            *(pBuffer+i)=parametro+i;
-        }
-    }
-    return retorno;
-}
-int imprimir(int* pBuffer,int limite){
-    int i;
-    int retorno=-1;
-    if(pBuffer!=NULL && limite>0 ){
-        retorno=0;
-        for(i=0;i<limite;i++){
-            printf("\n%d",*(pBuffer+i));
-        }
-    }
-    return retorno;
-}
-int deleteArray(int* pBuffer){
-    int retorno=-1;
-    if(pBuffer!=NULL){
-        retorno=0;
-        free(pBuffer);
-    }
-    return retorno;
-}
-int* reasignar(int* pBuffer,int size){
-    int* retorno=NULL;
-    if(pBuffer!=NULL && size>0){
-        retorno= realloc(pBuffer,sizeof(int)*size);
-    }
-   return retorno;
 }
