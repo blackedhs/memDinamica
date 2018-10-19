@@ -7,12 +7,13 @@
 
 1539821155 /home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/empleado.h
 
-1539824000 source:/home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/main.c
+1539902522 source:/home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/main.c
 	<stdio.h>
 	<stdlib.h>
 	"empleado.h"
 	"service.h"
 	"user.h"
+	"clientes.h"
 
 1539822500 source:/home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/service.c
 	<stdio.h>
@@ -29,4 +30,12 @@
 	"user.h"
 
 1539823632 /home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/user.h
+
+1539902428 source:/home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"clientes.h"
+
+1539902554 /home/alumno/Escritorio/fede/Mem_Dinamica/memDinamica/clientes.h
 
